@@ -1,3 +1,4 @@
+# syntax=docker/dockerfile:1.4
 ARG postgres_version=15.1.1.49
 
 ARG pgbouncer_release=1.18.0

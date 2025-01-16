@@ -31,8 +31,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - id: settings
-        # Remove spaces and quotes to get the raw version string
-        run: sed -r 's/(\s|\")+//g' common.vars.pkr.hcl >> $GITHUB_OUTPUT
+        run: |
+          if [[ "${{ inputs.baseDockerVersion }}" != "" ]]; then
+            echo "postgres-version=${{ inputs.baseDockerVersion }}" >> $GITHUB_OUTPUT
+          else
+            # Remove spaces and quotes to get the raw version string
+            sed -r 's/(\s|\")+//g' common.vars.pkr.hcl >> $GITHUB_OUTPUT
+          fi
+
       - id: base_docker
         run: |
           if [[ "${{ inputs.baseDockerVersion }}" != "" ]]; then

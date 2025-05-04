@@ -37,13 +37,15 @@ elif [ -n "$(command -v apt-get)" ]; then
 	libcgal-dev \
 	libgcc-9-dev \
 	libgcc-8-dev \
+        libgcc-10-dev \
 	ansible \
         snapd
 
   add-apt-repository --yes --remove ppa:ansible/ansible
 
   source /etc/os-release
-  apt-get -y remove --purge linux-headers-5.11.0-1021-aws
+
+  apt-get -y remove --purge ansible-core apport appstream bash-completion bcache-tools bind9-dnsutils bind9-host bind9-libs bolt bpfcc-tools bpftrace btrfs-progs byobu command-not-found console-setup distro-info eject fonts-ubuntu-console friendly-recovery ftp fwupd gawk gdisk keyboard-configuration libvolume-key1 linux-headers-5.11.0-1021-aws lvm2 lxd-agent-loader lxd-installer man-db mdadm modemmanager mtd-utils nano netcat-openbsd nfs-common ntfs-3g parted pastebinit python3-setuptools python3-twisted screen strace thin-provisioning-tools tmux usb-modeswitch vim vim-runtime wget whiptail xfsprogs
 
   apt-get -y update
   apt-get -y upgrade

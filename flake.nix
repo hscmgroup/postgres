@@ -161,7 +161,6 @@
         orioleFilteredExtensions = builtins.filter
           (
             x:
-            x != ./nix/ext/timescaledb.nix &&
             x != ./nix/ext/plv8.nix
         ) ourExtensions;
 
